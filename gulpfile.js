@@ -13,14 +13,14 @@ const del = require('del');
 
 const browserSync = require('browser-sync').create();
 
-gulp.task('sass', function () {   
+gulp.task('sass', function () {
    return gulp.src('src/scss/**/*.scss')
   .pipe(sourcemaps.init())
   .pipe(sass())
   .pipe(postcss([ autoprefixer(), cssnano() ]))
   .pipe(sourcemaps.write('.'))
   .pipe(browserSync.reload({stream:true}))
-  .pipe(gulp.dest('src/css')) 
+  .pipe(gulp.dest('src/css'))
 })
 
 gulp.task('asset-opt', function(){
@@ -52,8 +52,28 @@ gulp.task('img-optimise', function(){
 
 gulp.task('clean-build', function () {
   return del([
-  'public/*'
+    'public/*'
   ]);
+});
+
+gulp.task('vendor-src-clean', function(){
+  return del([
+    'src/js/vendor/*'
+  ]);
+});
+
+gulp.task( 'vendor-scripts', function() {
+  var scripts = [
+
+      `node_modules/jquery/dist/jquery.js`,
+
+      
+  ];
+  return gulp.src( scripts, { allowEmpty: true } )
+    .pipe( uglify() )
+    .pipe( gulp.dest('src/js/vendor') );
+
+
 });
 
 gulp.task('serve', function(){
@@ -76,5 +96,5 @@ gulp.task('watch', function() {
 })
 
 
-gulp.task('default', gulp.parallel('serve', 'watch'));
-gulp.task('build', gulp.series('clean-build', 'asset-opt', 'css-copy', 'html-minify', 'img-optimise'));
+gulp.task('default', gulp.series('vendor-src-clean', 'vendor-scripts', gulp.parallel('serve', 'watch')));
+gulp.task('build', gulp.series('clean-build', 'vendor-src-clean', 'vendor-scripts', 'asset-opt', 'css-copy', 'html-minify', 'img-optimise'));
