@@ -1,24 +1,15 @@
-/* prefixed by https://autoprefixer.github.io (PostCSS: v7.0.26, autoprefixer: v9.7.3) */
-
 body {
+	/* padding-top: 50px; */
+	/* background: #F7F7F7; */
   -webkit-perspective: 100vmax;
-          perspective: 100vmax;
   background: rgb(255,225,225);
-  background: -o-linear-gradient(297deg, rgba(255,225,225,1) 0%, rgba(246,202,200,1) 45%, rgba(255,255,255,1) 100%);
   background: linear-gradient(153deg, rgba(255,225,225,1) 0%, rgba(246,202,200,1) 45%, rgba(255,255,255,1) 100%);
   min-height: 100vh;
-
-  display: -webkit-box;
-
-  display: -ms-flexbox;
+  min-height: -webkit-fill-available;
 
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   font-family: 'Gloria Hallelujah', cursive;
 }
 
@@ -28,15 +19,8 @@ body {
   width: 45vmin;
 	
 
-  -webkit-box-flex: 0;
-	
-
-      -ms-flex-positive: 0;
-	
-
-          flex-grow: 0;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
 .card {
@@ -56,8 +40,7 @@ body {
 	background-position: center center;
 	background-size: cover;
 	background-repeat: no-repeat;
-	-webkit-box-shadow: inset 0 0 45px rgba(255,255,255,.3), 0 12px 20px -10px rgba(0,0,0,.4);
-	        box-shadow: inset 0 0 45px rgba(255,255,255,.3), 0 12px 20px -10px rgba(0,0,0,.4);
+	box-shadow: inset 0 0 45px rgba(255,255,255,.3), 0 12px 20px -10px rgba(0,0,0,.4);
 	color: #FFF;
 	text-align: center;
 	text-shadow: 0 1px rgba(0,0,0,.3);
@@ -66,25 +49,15 @@ body {
 
   position: absolute;
 	-webkit-backface-visibility: hidden;
-	        backface-visibility: hidden;
+
+  transition: box-shadow 1s ease-in;
 }
 
 .card-front {
   
-	-webkit-transition: -webkit-transform 1s;
-  
-	transition: -webkit-transform 1s;
-  
-	-o-transition: transform 1s;
-  
-	transition: transform 1s;
-  
-	transition: transform 1s, -webkit-transform 1s;
+	transition: -webkit-transform 1s ease-in;
 	-webkit-transform-style: preserve-3d;
-	        transform-style: preserve-3d;
   -webkit-transform-origin: left center;
-      -ms-transform-origin: left center;
-          transform-origin: left center;
   z-index: 10;
 }
 
@@ -100,9 +73,7 @@ body {
   text-align: right;
   width: 100%;
   color: #333;
-  -webkit-transition: opacity 1s;
-  -o-transition: opacity 1s;
-  transition: opacity 1s;
+  transition: -webkit-opacity 1s ease-in;
 }
 
 
@@ -123,7 +94,6 @@ body {
 }
 .side-b {
 	-webkit-transform: rotateY(180deg);
-	        transform: rotateY(180deg);
 }
 
 .side-c {
@@ -133,9 +103,12 @@ body {
 
 .card-container:hover .card-front {
 	-webkit-transform: rotateY(-180deg);
-	        transform: rotateY(-180deg);
+}
+
+.card-container:hover .card-front div {
+  box-shadow: inset -10px 0 45px rgba(255,255,255,.3), -10px 12px 20px -10px rgba(0,0,0,.4);
 }
 
 .card-container:hover .instructions {
-  opacity: 0;
+  -webkit-opacity: 0;
 }
