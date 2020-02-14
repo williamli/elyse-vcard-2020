@@ -21,7 +21,7 @@ body {
     flex-grow: 0;
     flex-shrink: 0;
 
-    &:hover {
+    &.opened {
       .card-front {
         transform: rotateY(-180deg);
 

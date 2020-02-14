@@ -13,19 +13,19 @@
     </style>
 
     <!-- build:js js/main.min.js -->
-      <script src="../node_modules/jquery/dist/jquery.js"></script>
+      <script src="js/vendor/jquery.js"></script>
       <script src="js/card.js"></script>
     <!-- endbuild -->
     
   </head>
-  <body onClick="">
-    <div class="card-container" onClick="">
-      <div class="card-front card" onClick="">
+  <body>
+    <div class="card-container" onClick="toggleCard()">
+      <div class="card-front card">
         <div class="side-a"></div>
         <div class="side-b"></div>
       </div>
 
-      <div class="card-back card" onClick="">
+      <div class="card-back card">
         <div class="side-c"></div>
       </div>
 
