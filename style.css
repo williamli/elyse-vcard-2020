@@ -74,13 +74,13 @@ body {
 
 
 .side-a {
-	background: #498FBC url('http://media-hearth.cursecdn.com/attachments/9/192/feb-2015.png');
+	background: #EEE url('/side-1.jpg');
 }
 .side-b {
-	background: #33363B url('http://media-hearth.cursecdn.com/avatars/149/109/12182.png');
+	background: #EEE url('/side-2.jpg');
 }
 .side-c {
-	background: #498FBC url('http://media-hearth.cursecdn.com/avatars/149/109/12182.png');
+	background: #EEE url('/side-3.jpg');
 }
 
 
