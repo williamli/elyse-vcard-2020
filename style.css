@@ -70,6 +70,7 @@ body {
   text-align: right;
   width: 100%;
   color: #333;
+  transition: -webkit-opacity 1s;
 }
 
 
@@ -99,4 +100,8 @@ body {
 
 .card-container:hover .card-front {
 	-webkit-transform: rotateY(-180deg);
+}
+
+.card-container:hover .instructions {
+  -webkit-opacity: 0;
 }
