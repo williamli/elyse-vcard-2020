@@ -58,8 +58,9 @@ gulp.task('clean-build', function () {
 
 gulp.task('serve', function(){
   browserSync.init({
-  server: 'src',
-  port: 3000
+    server: 'src',
+    port: 3000,
+    watch: true
   });
 })
 
@@ -69,8 +70,9 @@ gulp.task('reload', function(done){
 })
 
 gulp.task('watch', function() {
-  gulp.watch('src/scss/**/*.scss', gulp.series('sass', 'reload'));
-  gulp.watch('src/js/**/*.js', gulp.series('reload'));
+  gulp.watch('src/scss/**/*.scss', gulp.series('sass'));
+  // gulp.watch('src/js/**/*.js', gulp.series('reload'));
+  // gulp.watch('src/**/*.html', gulp.series('reload'));
 })
 
 
