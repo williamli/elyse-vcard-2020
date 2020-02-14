@@ -1,0 +1,154 @@
+body {
+  perspective: 100vmax;
+  background: rgb(255,225,225);
+  background: linear-gradient(153deg, rgba(255,225,225,1) 0%, rgba(246,202,200,1) 45%, rgba(255,255,255,1) 100%);
+  min-height: 100vh;
+  min-height: fill-available;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Gloria Hallelujah', cursive;
+
+
+
+  .card-container {
+    position: relative;
+    cursor: pointer;
+    width: 45vmin;
+    
+
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    &:hover {
+      .card-front {
+        transform: rotateY(-180deg);
+
+        div {
+          box-shadow: inset -10px 0 45px rgba(255,255,255,.3), -10px 12px 20px -10px rgba(0,0,0,.4);
+        }
+      }
+
+      .instructions {
+        opacity: 0;
+      }
+    }
+    
+
+    
+
+    
+
+    .card {
+      position: relative;
+      margin: 0 auto;
+      width: 45vmin;
+      max-width: 600px;
+      height: 0;
+      padding-bottom: calc(100% / 5 * 7);
+      
+
+      > div {
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        box-shadow: inset 0 0 45px rgba(255,255,255,.3), 0 12px 20px -10px rgba(0,0,0,.4);
+        color: #FFF;
+        text-align: center;
+        text-shadow: 0 1px rgba(0,0,0,.3);
+        font: bold 3em sans-serif;
+        line-height: 350px;
+
+        position: absolute;
+        backface-visibility: hidden;
+
+        transition: box-shadow 1s ease-in;
+
+
+
+
+        &.side-a {
+          background-image: url('/img/side-1.jpg');
+          background-color: #EEE;
+          z-index: 100;
+        }
+        &.side-b {
+          background-image: url('/img/side-2.jpg');
+          background-color: #EEE;
+          transform: rotateY(180deg);
+        }
+        &.side-c {
+          background-image: url('/img/side-3.jpg');
+          background-color: #EEE;
+        }
+      }
+
+
+      &.card-front {
+      
+        transition: transform 1s ease-in;
+        transform-style: preserve-3d;
+        transform-origin: left center;
+        z-index: 10;
+      }
+
+      &.card-back {
+        position: absolute;
+        top: 0;
+        z-index: 2;
+      }
+
+
+      
+
+    }
+
+    .instructions {
+      position: absolute;
+      bottom: -2.5rem;
+      text-align: right;
+      width: 100%;
+      color: #333;
+      transition: opacity 1s ease-in;
+    }
+
+    
+
+
+    
+
+
+    
+  }
+
+  
+
+  #bbiBadge {
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 0.5rem;
+    
+    color: #666;
+    
+
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    span {
+      font-size: 0.2rem;
+    }
+    img {
+      width: 12px;
+      margin-right: 0.05rem;
+    }
+  }
+
+}
+
